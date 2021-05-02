@@ -10,51 +10,59 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Google AdSense -->
-    <script data-ad-client="ca-pub-3558662805488994" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <script data-ad-client="ca-pub-3558662805488994" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 
     <!-- webcam-easy.js -->
-    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script> -->
 </head>
 
 <body>
-    <!--
-    <a href="https://mictests.com/" target="_blank">Mic</a>
-    <a href="https://webcamtests.com/" target="_blank">Webcam</a>
-    <a href="https://www.keyboardtester.com/tester.html" target="_blank">Keyboard</a>
-    <a href="https://www.audiocheck.net/audiotests_stereo.php" target="_blank">Audio</a>
--->
+	<p style="text-align: center; background-color: yellow; padding: 10px;">This website is currently under development. Not all features may be functional.</p>
 
-<!-- Webcam -->
+	<h1 class="text-center">Chromebook Tester</h1>
+	<p class="text-center">Welcome to chromebooktester.com. This site was built to test the basic functionality of a Chromebook. However, you don't have to have a Chromebook to use this site as it will work with any device, whether it be Windows, MacOS, or mobile devices.</p>
+
+    <div class="center-horizontal">
+        <button class="button" onclick="window.open('https://mictests.com/'); window.focus();">Mic Test</button>
+        <button class="button" onclick="window.open('https://webcamtests.com/'); window.focus();">Webcam Test</button>
+        <button class="button" onclick="window.open('https://www.keyboardtester.com/tester.html'); window.focus();">Keyboard Test</button>
+        <button class="button" onclick="window.open('https://www.audiocheck.net/audiotests_stereo.php'); window.focus();">Audio Test</button>
+    </div>
+
+    <h2>System Information:</h2>
+	<code id="ua" class="tab"></code> <!-- Displays System Information -->
+
+	<script type="text/javascript">
+		var userSysInfo = navigator.userAgent;
+
+		document.getElementById("ua").innerHTML = userSysInfo;
+	</script>
+
+	<h2>Audio Test</h2>
+
+	<h3>Left Channel</h3>
+	<audio controls src="/media/leftChannel.mp3" preload="auto">Your browser does not support the
+            <code>audio</code> element.</audio>
+
+    <h3>Right Channel</h3>
+	<audio controls src="/media/rightChannel.mp3" preload="auto">Your browser does not support the
+            <code>audio</code> element.</audio>
+
+    <h3>Both Channels</h3>
+	<audio controls src="/media/bothChannels.mp3" preload="auto">Your browser does not support the
+            <code>audio</code> element.</audio>
+
+	
+
+	
+<!-- <video id="webcam" autoplay playsinline width="640" height="480"></video>
+<canvas id="canvas" class="d-none"></canvas> -->
 <!--
-<script src="webcam.js"></script>
-<main id="camera">
-    <canvas id="camera--sensor"></canvas>
-    <video id="camera--view" autoplay playsinline></video>
-    <img src="//:0" alt="" id="camera--output">
-    <button id="camera--trigger">Take a picture</button>
-</main>
--->
-<video id="webcam" autoplay playsinline width="640" height="480"></video>
-<canvas id="canvas" class="d-none"></canvas>
 <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
 <button id="camera--trigger">Take a picture</button>
+-->
 
-<script>
-    const webcamElement = document.getElementById('webcam');
-    const canvasElement = document.getElementById('canvas');
-    const snapSoundElement = document.getElementById('snapSound');
-    const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
-
-    webcam.start()
-        .then(result =>{
-            console.log("webcam started");
-        })
-        .catch(err => {
-            console.log(err);
-        });
-        let picture = webcam.snap();
-        document.querySelector('#download-photo').href = picture;
-</script>
+	<!-- <script type="text/javascript" src="webcam.js"></script> -->
 </body>
 
 </html>
