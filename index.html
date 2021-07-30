@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="widht=device-width, initial-scale=1">
+
+    <title>Chromebook Tester</title>
+    <link rel="stylesheet" href="style.css">
+    <script data-ad-client="ca-pub-3558662805488994" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+	<h1 class="text-center title" id="title"><a href="https://chromebooktester.com">Chromebook Tester</a></h1>
+	<p class="text-center">Welcome to chromebooktester.com. This site was designed to assist in the triage process of Chromebooks to enable faster repairs. Despite its name and original intent, the features available here should work on any Operating System.</p>
+
+    <!-- START: System Information -->
+    <h2 id="sysInfo">System Information:</h2>
+    <p>This section shows which web browser you're using. On ChromeOS, you can see which version of ChromeOS you're running by looking at the version of Chrome.</p>
+	<code id="ua" class="tab"></code>
+	<script type="text/javascript" src="systemInfo.js"></script>
+	<!-- END: System Information -->
+
+	<!-- START: Mic Test -->
+	<script>
+		function scrollToTop() {
+    		document.getElementById('title').scrollIntoView();    
+		};
+	</script>
+	<h2>Mic Test</h2>
+	<p>Click the button below to test your microphone. If microphone permissions have been granted, the microphone will immediately begin recording for 5 seconds. If microphone permissions have not been granted, they will be requested. Once the recording is complete, it will be played back automatically. Make sure that your microphone is turned on, and that your volume is turned up to an audible level before beginning the test.</p>
+    <button onclick="myAudio()" tabindex="1" onfocus="scrollToTop();" autofocus>Test Mic</button>
+	<script type="text/javascript" src="micTest.js"></script>
+	<!-- END: Mic Test -->
+
+	<!-- START: Webcam Test -->
+	<h2>Webcam Test</h2>
+	<p>Click the button below to test your camera. If camera permissions have been granted, the camera will begin recording immediately and you should be able to see the camera feed in the box/video player. If camera permissions have not been granted, they will be requested.</p>
+    <div id="webcamWrapper">
+	    <video id="videoPlayer" controls autoplay></video>
+    </div>
+	<button onclick="startWebcam()" tabindex="2">Test Webcam</button>
+	<script type="text/javascript" src="webcamTest.js"></script>
+	<!-- END: Webcam Test -->
+
+	<!-- START: Audio Tests -->
+	<h2>Audio Tests</h2>
+	<p>Click the buttons below to hear a short recording. You should be able able to hear the audio coming from their respective channels.</p>
+	<div class="tab">
+		<h3>Left Channel</h3>
+		<audio controls preload="auto" id="leftChannel">
+			<source src="/media/leftChannel.mp3" type="audio/mpeg">
+			<source src="/media/leftChannel.ogg" type="audio/ogg">
+			<source src="/media/leftChannel.wav" type="audio/wav">
+			Your browser does not support the<code>audio</code> element.
+		</audio>
+		<button onclick="document.getElementById('leftChannel').play()" tabindex="3">Play</button>
+
+	    <h3>Right Channel</h3>
+		<audio controls preload="auto" id="rightChannel">
+			<source src="/media/rightChannel.mp3" type="audio/mpeg">
+			<source src="/media/rightChannel.ogg" type="audio/ogg">
+			<source src="/media/rightChannel.wav" type="audio/wav">
+			Your browser does not support the<code>audio</code> element.
+		</audio>
+		<button onclick="document.getElementById('rightChannel').play()" tabindex="4">Play</button>
+
+	    <h3>Both Channels</h3>
+		<audio controls preload="auto" id="bothChannels">
+			<source src="/media/bothChannels.mp3" type="audio/mpeg">
+			<source src="/media/bothChannels.ogg" type="audio/ogg">
+			<source src="/media/bothChannels.wav" type="audio/wav">
+			Your browser does not support the<code>audio</code> element.
+		</audio>
+		<button onclick="document.getElementById('bothChannels').play()" tabindex="5">Play</button>
+	</div>
+    <!-- END: Audio Tests -->
+
+    <!-- START: Keyboard Test -->
+	<script>
+		function scrollKeyboardToView() {
+    		document.getElementById('keyboard').scrollIntoView();    
+		};
+	</script>
+	<h2>Keyboard Test</h2>
+	<p>If you press any keyboard keys while on this page, they should be highlighted in green below. Be mindful that the actual key pressed will be highlighted regardless of your layout. That is to say, although the US-English QWERTY layout is shown below, if you were to press the "A" key on an AZERTY keyboard layout, the "Q" would be highlighted below. However, if you click on the text field and begin typing, you should see input based on your current keyboard layout.</p>
+	<script src="keyboard.js"></script>
+
+	<textarea id="keyboard-test" tabindex="6" onfocus="scrollKeyboardToView(); highlightOnlyOnFocus();"></textarea>
+	<input id="invisible" onfocus="focusOnKeyboardTest();" tabindex="7"></input> <!-- Won't allow tabbing out of text area - invisible -->
+
+	<div id="keyboard">    
+	    <div class="keyboard-row">
+	        <div class="keyboard-main-area">
+	            <span class="key" id="Escape">Esc</span>
+	            <span class="key" id="Backquote">`</span>
+	            <span class="key" id="Digit1">1</span>
+	            <span class="key" id="Digit2">2</span>
+	            <span class="key" id="Digit3">3</span>
+	            <span class="key" id="Digit4">4</span>
+	            <span class="key" id="Digit5">5</span>
+	            <span class="key" id="Digit6">6</span>
+	            <span class="key" id="Digit7">7</span>
+	            <span class="key" id="Digit8">8</span>
+	            <span class="key" id="Digit9">9</span>
+	            <span class="key" id="Digit0">0</span>
+	            <span class="key" id="Minus">-</span>
+	            <span class="key" id="Equal">=</span>
+	            <span class="key" id="Backspace">Backspace</span>
+	        </div>
+	    </div>
+
+	    <div class="keyboard-row">
+	        <div class="keyboard-main-area">
+	            <span class="key" id="Tab">Tab</span>
+	            <span class="key" id="KeyQ">Q</span>
+	            <span class="key" id="KeyW">W</span>
+	            <span class="key" id="KeyE">E</span>
+	            <span class="key" id="KeyR">R</span>
+	            <span class="key" id="KeyT">T</span>
+	            <span class="key" id="KeyY">Y</span>
+	            <span class="key" id="KeyU">U</span>
+	            <span class="key" id="KeyI">I</span>
+	            <span class="key" id="KeyO">O</span>
+	            <span class="key" id="KeyP">P</span>
+	            <span class="key" id="BracketLeft">[</span>
+	            <span class="key" id="BracketRight">]</span>
+	            <span class="key" id="Backslash">\</span>
+	        </div>
+	    </div>
+
+	    <div class="keyboard-row">
+	        <div class="keyboard-main-area">
+	            <span class="key" id="CapsLock">Caps</span>
+	            <span class="key" id="KeyA">A</span>
+	            <span class="key" id="KeyS">S</span>
+	            <span class="key" id="KeyD">D</span>
+	            <span class="key" id="KeyF">F</span>
+	            <span class="key" id="KeyG">G</span>
+	            <span class="key" id="KeyH">H</span>
+	            <span class="key" id="KeyJ">J</span>
+	            <span class="key" id="KeyK">K</span>
+	            <span class="key" id="KeyL">L</span>
+	            <span class="key" id="Semicolon">;</span>
+	            <span class="key" id="Quote">'</span>
+	            <span class="key" id="Enter">Enter</span>
+	        </div>
+	    </div>
+
+	    <div class="keyboard-row">
+	        <div class="keyboard-main-area">
+	            <span class="key" id="ShiftLeft">Shift</span>
+	            <span class="key" id="KeyZ">Z</span>
+	            <span class="key" id="KeyX">X</span>
+	            <span class="key" id="KeyC">C</span>
+	            <span class="key" id="KeyV">V</span>
+	            <span class="key" id="KeyB">B</span>
+	            <span class="key" id="KeyN">N</span>
+	            <span class="key" id="KeyM">M</span>
+	            <span class="key" id="Comma">,</span>
+	            <span class="key" id="Period">.</span>
+	            <span class="key" id="Slash">/</span>
+	            <span class="key" id="ShiftRight">Shift</span>
+	        </div>
+
+	        <div class="keyboard-mid-area">
+	            <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
+	        </div>
+	    </div>
+
+	    <div class="keyboard-row">
+	        <div class="keyboard-main-area">
+	            <span class="key" id="ControlLeft">Ctrl</span>
+	            <span class="key" id="AltLeft">Alt</span>
+	            <span class="key" id="Space">Space Bar</span>
+	            <span class="key" id="AltRight" >Alt</span>
+	            <span class="key" id="ControlRight">Ctrl</span>
+	        </div>
+
+	        <div class="keyboard-mid-area">
+	            <span class="key" id="SpaceAlignment"></span>
+	            <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
+	            <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
+	            <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
+	        </div>
+	    </div>
+	</div>
+    <!-- END: Keyboard Test -->
+
+	
+
+	
+<!-- <video id="webcam" autoplay playsinline width="640" height="480"></video>
+<canvas id="canvas" class="d-none"></canvas> -->
+<!--
+<audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
+<button id="camera--trigger">Take a picture</button>
+-->
+
+	<!-- <script type="text/javascript" src="webcam.js"></script> -->
+
+	<p>This website is free to use, however, there are costs associated with maintaining it. If it's been helpful to you and you'd like to donate to maintain it, you can do so via PayPal here:</p>
+	<!-- PayPal Donation Button -->
+	<form action="https://www.paypal.com/donate" method="post" target="_top">
+		<input type="hidden" name="business" value="GBVZZBEK93KHW" />
+		<input type="hidden" name="currency_code" value="USD" />
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+		<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+</form>
+</body>
+
+</html>
