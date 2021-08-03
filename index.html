@@ -29,8 +29,9 @@
 		};
 	</script>
 	<h2>Mic Test</h2>
-	<p>Click the button below to test your microphone. If microphone permissions have been granted, the microphone will immediately begin recording for 5 seconds. If microphone permissions have not been granted, they will be requested. Once the recording is complete, it will be played back automatically. Make sure that your microphone is turned on, and that your volume is turned up to an audible level before beginning the test.</p>
+	<p>Click the button below to test your microphone. If microphone permissions have been granted, the microphone will immediately begin recording. If microphone permissions have not been granted, they will be requested. Once the recording is complete, it will be played back automatically. Make sure that your microphone is turned on, and that your volume is turned up to an audible level before beginning the test. By default, the recording will be 5 seconds long but you may change it by changing the "Recording Length" field. The value must be in seconds. The minimum is 3 seconds and maximum is 300 seconds &#40;5 minutes&#41;.</p>
     <button onclick="myAudio()" tabindex="1" onfocus="scrollToTop();" autofocus>Test Mic</button>
+	<input id="recordLength" type="text" value="5" min="3" max="300">
 	<script type="text/javascript" src="micTest.js"></script>
 	<!-- END: Mic Test -->
 

@@ -1,4 +1,5 @@
 function myAudio() {
+    var recordLength = document.getElementById("recordLength").value * 1000;
     const recordAudio = () =>
     new Promise(async resolve => {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -32,7 +33,7 @@ function myAudio() {
     (async () => {
     const recorder = await recordAudio();
     recorder.start();
-    await sleep(5000);
+    await sleep(recordLength);
     const audio = await recorder.stop();
     audio.play();
     })();
