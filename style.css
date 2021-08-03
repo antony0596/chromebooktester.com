@@ -12,7 +12,7 @@ a {
 }
 /* Letter coloring */
 .blue {
-  color: ;
+  color: blue;
 }
 .center-horizontal {
   display: inline-block;
@@ -70,6 +70,12 @@ a {
 }
 
 /* classes */
+.margin {
+  margin: 1em;
+}
+.inline-block {
+  display: inline-block;
+}
 .keyboard-row {
   display: flex;
 }

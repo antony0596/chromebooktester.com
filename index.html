@@ -13,11 +13,18 @@
 
 <body>
 	<h1 class="text-center title" id="title"><a href="https://chromebooktester.com">Chromebook Tester</a></h1>
-	<p class="text-center">Welcome to chromebooktester.com. This site was designed to assist in the triage process of Chromebooks to enable faster repairs. Despite its name and original intent, the features available here should work on any Operating System.</p>
+	<p class="text-center">
+		Welcome to chromebooktester.com.<br>
+		This site was designed to assist in the triage process of Chromebooks to enable faster repairs.<br>
+		Despite its name and original intent, the features available here should work on any Operating System.
+	</p>
 
     <!-- START: System Information -->
     <h2 id="sysInfo">System Information:</h2>
-    <p>This section shows which web browser you're using. On ChromeOS, you can see which version of ChromeOS you're running by looking at the version of Chrome.</p>
+    <p>
+		This section shows which web browser you're using.<br>
+		On ChromeOS, you can see which version of ChromeOS you're running by looking at the version of Chrome.
+	</p>
 	<code id="ua" class="tab"></code>
 	<script type="text/javascript" src="systemInfo.js"></script>
 	<!-- END: System Information -->
@@ -28,21 +35,30 @@
     		document.getElementById('title').scrollIntoView();    
 		};
 	</script>
-	<h2>Mic Test</h2>
-	<p>Click the button below to test your microphone. If microphone permissions have been granted, the microphone will immediately begin recording. If microphone permissions have not been granted, they will be requested. Once the recording is complete, it will be played back automatically. Make sure that your microphone is turned on, and that your volume is turned up to an audible level before beginning the test. By default, the recording will be 5 seconds long but you may change it by changing the "Recording Length" field. The value must be in seconds. The minimum is 3 seconds and maximum is 300 seconds &#40;5 minutes&#41;.</p>
-    <button onclick="myAudio()" tabindex="1" onfocus="scrollToTop();" autofocus>Test Mic</button>
-	<label for="recordLength">Recording Length:</label>
+	<h2>Microphone Test</h2>
+	<p>
+		The recorded audio will automatically be played back once recording is finished.<br>
+		If you haven't previously allowed Chromebook Tester to use your microphone, you will be asked to do so.<br>
+		Make sure that your microphone is turned on, and that your volume is turned up to an audible level before beginning the test.<br>
+		You can adjust the recording length between 3 seconds to 300 seconds &#40;5 minutes&#41;.
+	</p>
+	<label for="recordLength">Recording Length &#40;in seconds&#41;:</label>
 	<input id="recordLength" type="text" value="5" min="3" max="300">
+	<br><br>
+	<button onclick="myAudio()" tabindex="1" onfocus="scrollToTop();" autofocus>Begin Microphone Test</button>
 	<script type="text/javascript" src="micTest.js"></script>
 	<!-- END: Mic Test -->
 
 	<!-- START: Webcam Test -->
 	<h2>Webcam Test</h2>
-	<p>Click the button below to test your camera. If camera permissions have been granted, the camera will begin recording immediately and you should be able to see the camera feed in the box/video player. If camera permissions have not been granted, they will be requested.</p>
+	<p>
+		Click the button below to test your camera.<br>
+		If you haven't previously allowed Chromebook Tester to use your camera, you will be asked to do so.<br>
+	</p>
     <div id="webcamWrapper">
 	    <video id="videoPlayer" controls autoplay></video>
     </div>
-	<button onclick="startWebcam()" tabindex="2">Test Webcam</button>
+	<button onclick="startWebcam()" tabindex="2">Begin Webcam Test</button>
 	<script type="text/javascript" src="webcamTest.js"></script>
 	<!-- END: Webcam Test -->
 
@@ -50,32 +66,38 @@
 	<h2>Audio Tests</h2>
 	<p>Click the buttons below to hear a short recording. You should be able able to hear the audio coming from their respective channels.</p>
 	<div class="tab">
-		<h3>Left Channel</h3>
-		<audio controls preload="auto" id="leftChannel">
-			<source src="/media/leftChannel.mp3" type="audio/mpeg">
-			<source src="/media/leftChannel.ogg" type="audio/ogg">
-			<source src="/media/leftChannel.wav" type="audio/wav">
-			Your browser does not support the<code>audio</code> element.
-		</audio>
-		<button onclick="document.getElementById('leftChannel').play()" tabindex="3">Play</button>
+		<div class="inline-block margin">
+			<h3>Left Channel</h3>
+			<audio preload="auto" id="leftChannel">
+				<source src="/media/leftChannel.mp3" type="audio/mpeg">
+				<source src="/media/leftChannel.ogg" type="audio/ogg">
+				<source src="/media/leftChannel.wav" type="audio/wav">
+				Your browser does not support the<code>audio</code> element.
+			</audio>
+			<button class="center-horizontal" onclick="document.getElementById('leftChannel').play()" tabindex="3">Play</button>
+		</div>
 
-	    <h3>Right Channel</h3>
-		<audio controls preload="auto" id="rightChannel">
-			<source src="/media/rightChannel.mp3" type="audio/mpeg">
-			<source src="/media/rightChannel.ogg" type="audio/ogg">
-			<source src="/media/rightChannel.wav" type="audio/wav">
-			Your browser does not support the<code>audio</code> element.
-		</audio>
-		<button onclick="document.getElementById('rightChannel').play()" tabindex="4">Play</button>
+		<div class="inline-block margin">
+			<h3>Right Channel</h3>
+			<audio preload="auto" id="rightChannel">
+				<source src="/media/rightChannel.mp3" type="audio/mpeg">
+				<source src="/media/rightChannel.ogg" type="audio/ogg">
+				<source src="/media/rightChannel.wav" type="audio/wav">
+				Your browser does not support the<code>audio</code> element.
+			</audio>
+			<button class="center-horizontal" onclick="document.getElementById('rightChannel').play()" tabindex="4">Play</button>
+		</div>
 
-	    <h3>Both Channels</h3>
-		<audio controls preload="auto" id="bothChannels">
-			<source src="/media/bothChannels.mp3" type="audio/mpeg">
-			<source src="/media/bothChannels.ogg" type="audio/ogg">
-			<source src="/media/bothChannels.wav" type="audio/wav">
-			Your browser does not support the<code>audio</code> element.
-		</audio>
-		<button onclick="document.getElementById('bothChannels').play()" tabindex="5">Play</button>
+		<div class="inline-block margin">
+			<h3>Both Channels</h3>
+			<audio preload="auto" id="bothChannels">
+				<source src="/media/bothChannels.mp3" type="audio/mpeg">
+				<source src="/media/bothChannels.ogg" type="audio/ogg">
+				<source src="/media/bothChannels.wav" type="audio/wav">
+				Your browser does not support the<code>audio</code> element.
+			</audio>
+			<button class="center-horizontal" onclick="document.getElementById('bothChannels').play()" tabindex="5">Play</button>
+		</div>
 	</div>
     <!-- END: Audio Tests -->
 
