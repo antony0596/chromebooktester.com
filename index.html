@@ -108,7 +108,13 @@
 		};
 	</script>
 	<h2>Keyboard Test</h2>
-	<p>If you press any keyboard keys while on this page, they should be highlighted in green below. Be mindful that the actual key pressed will be highlighted regardless of your layout. That is to say, although the US-English QWERTY layout is shown below, if you were to press the "A" key on an AZERTY keyboard layout, the "Q" would be highlighted below. However, if you click on the text field and begin typing, you should see input based on your current keyboard layout.</p>
+	<p>
+		Select the text field and begin typing.<br>
+		The actual key pressed will be highlighted regardless of your layout.<br>
+		Although the US-English QWERTY layout is shown below,<br>
+		if you press the "A" key on an AZERTY layout, the "Q" will be highlighted below.<br>
+		Your actual input should still be based on your current keyboard layout.
+	</p>
 	<script src="keyboard.js"></script>
 
 	<textarea id="keyboard-test" tabindex="6" onfocus="scrollKeyboardToView(); highlightOnlyOnFocus();"></textarea>
@@ -203,7 +209,6 @@
 	        </div>
 
 	        <div class="keyboard-mid-area">
-	            <span class="key" id="SpaceAlignment"></span>
 	            <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
 	            <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
 	            <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
